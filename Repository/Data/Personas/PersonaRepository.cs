@@ -11,9 +11,9 @@ namespace Repository.Data.Personas
     public class PersonaRepository
     {
         NpgsqlConnection connection;
-        public PersonaRepository()
+        public PersonaRepository(string connectionString)
         {
-            connection = new ConnectionDB().OpenConnection();
+            connection = new ConnectionDB(connectionString).OpenConnection();
         }
 
         public bool add(PersonaModel personaModel)
@@ -37,6 +37,30 @@ namespace Repository.Data.Personas
             {
                 throw ex;
             }
+        }
+
+        public List<PersonaModel> list()
+        {
+            List<PersonaModel> personas = new List<PersonaModel>();
+
+            var cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT * FROM persona";
+            var list = cmd.ExecuteReader();
+
+
+            while (list.Read())
+            {
+                personas.Add(new PersonaModel { 
+                    nombre = list.GetString(1),
+                    apellido = list.GetString(2),
+                    cedula = list.GetString(3),
+                    correo = list.GetString(5),
+                    fechaNacimiento = list.GetDateTime(4),
+                    estado = list.GetString(6)
+                });
+            }
+            
+            return personas;
         }
     }
 }

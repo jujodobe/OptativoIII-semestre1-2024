@@ -9,7 +9,12 @@ namespace Repository.Data.ConfiguracionesDB
 {
     public class ConnectionDB
     {
-        private string connectionString = "Host=localhost;Username=postgres;Password=a.123456;Database=optativoIII;Port=5432";
+        private string connectionString;
+
+        public ConnectionDB(string _connectionString)
+        {
+            this.connectionString = _connectionString;
+        }
 
         public NpgsqlConnection OpenConnection()
         {

@@ -1,12 +1,50 @@
 ﻿using OptativoIII_introduccion.Modelos;
+using Repository.Data.Personas;
+using Services.Logica;
 
-Persona persona = new Alumno();
-persona.imprimirResponsabilidad();
+string connectionString = "Host=localhost;port=5432;Database=optativo3;Username=postgres;Password=123456;";
+PersonaService personaService = new PersonaService(connectionString);
+
+Console.WriteLine("Ingrese: \n a - para insertar \n b - para listar");
+string opcion = Console.ReadLine();
+
+if(opcion == "a")
+{
+    personaService.insertar(new PersonaModel
+    {
+        nombre = "Juan",
+        apellido = "Perez Sarela",
+        cedula = "456783",
+        correo = "",
+        fechaNacimiento = new DateTime(1990, 05, 01),
+        estado = "Activo"
+    });
+}
+if(opcion == "b")
+{
+    personaService.listado().ForEach(persona => 
+    Console.WriteLine(
+        $"Nombre: {persona.nombre} \n " +
+        $"Apellido: {persona.apellido} \n " +
+        $"Cedula: {persona.cedula} \n " +
+        $"Correo {persona.correo} \n " +
+        $"Fecha de Nacimiento: {persona.fechaNacimiento} \n " +
+        $"Estado: {persona.estado} \n "
+        )
+    );
+}
 
 
-Console.WriteLine("Imprimir colaborador que hereda la clase abstracta de Persona");
-persona = new Colaborador();
-persona.imprimirResponsabilidad();
+
+
+
+//Persona persona = new Alumno();
+//persona.imprimirResponsabilidad();
+
+
+//Console.WriteLine("Imprimir colaborador que hereda la clase abstracta de Persona");
+//persona = new Colaborador();
+//persona.imprimirResponsabilidad();
 
 
 

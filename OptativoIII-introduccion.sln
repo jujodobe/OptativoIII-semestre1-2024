@@ -5,9 +5,14 @@ VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OptativoIII-introduccion", "OptativoIII-introduccion\OptativoIII-introduccion.csproj", "{9195DFAE-E477-4FDA-AE76-E2C4944CE2CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{94FA0116-66D7-4304-A3A9-D88322862730}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{94FA0116-66D7-4304-A3A9-D88322862730}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{997CAFB4-1E62-4FB9-B311-67B5A5CF66B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{997CAFB4-1E62-4FB9-B311-67B5A5CF66B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{96B20F17-72B8-4714-9590-1DC346F04ADB}"
+	ProjectSection(SolutionItems) = preProject
+		ScriptSQL.sql = ScriptSQL.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
