@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Npgsql;
+﻿using Dapper;
 using Repository.Data.ConfiguracionesDB;
+using System.Data;
 
 namespace Repository.Data.Personas
 {
-    public class PersonaRepository
+    public class PersonaRepository : IPersonaRepository
     {
-        NpgsqlConnection connection;
+        IDbConnection connection;
+
         public PersonaRepository(string connectionString)
         {
             connection = new ConnectionDB(connectionString).OpenConnection();
@@ -20,17 +17,8 @@ namespace Repository.Data.Personas
         {
             try
             {
-                var cmd = connection.CreateCommand();
-                cmd.CommandText = "INSERT INTO Persona(nombre, apellido, cedula, fechaNacimiento, correo, estado) " +
-                    $"Values(" +
-                    $"'{personaModel.nombre}', " +
-                    $"'{personaModel.apellido}'," +
-                    $"'{personaModel.cedula}'," +
-                    $"'{personaModel.fechaNacimiento}'," +
-                    $"'{personaModel.correo}'," +
-                    $"'{personaModel.estado}')";
-                cmd.ExecuteNonQuery();
-                connection.Close();
+                connection.Execute("INSERT INTO Persona(nombre, apellido, cedula, fechaNacimiento, correo, estado) " +
+                    $"Values(@nombre, @apellido, @cedula, @fechaNacimiento, @correo, @estado)", personaModel);
                 return true;
             }
             catch (Exception ex)
@@ -39,28 +27,35 @@ namespace Repository.Data.Personas
             }
         }
 
-        public List<PersonaModel> list()
+        public IEnumerable<PersonaModel> GetAll()
         {
-            List<PersonaModel> personas = new List<PersonaModel>();
+            return connection.Query<PersonaModel>("SELECT * FROM persona");
+        }
 
-            var cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT * FROM persona";
-            var list = cmd.ExecuteReader();
-
-
-            while (list.Read())
+        public bool delete(int id)
+        {
+            connection.Execute($"DELETE FROM persona WHERE id = {id}");
+            return true;
+        }
+ 
+        public bool update(PersonaModel personaModel)
+        {
+            try
             {
-                personas.Add(new PersonaModel { 
-                    nombre = list.GetString(1),
-                    apellido = list.GetString(2),
-                    cedula = list.GetString(3),
-                    correo = list.GetString(5),
-                    fechaNacimiento = list.GetDateTime(4),
-                    estado = list.GetString(6)
-                });
+                connection.Execute("UPDATE Persona SET " +
+                    " nombre=@nombre, " +
+                    " apellido=@apellido, " +
+                    " cedula=@cedula, " +
+                    " fechaNacimiento=@fechaNacimiento, " +
+                    " correo=@correo, " +
+                    " estado=@estado " +
+                    $" WHERE  id = @id", personaModel);
+                return true;
             }
-            
-            return personas;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

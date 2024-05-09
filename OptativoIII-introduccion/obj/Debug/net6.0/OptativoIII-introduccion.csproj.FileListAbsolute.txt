@@ -25,3 +25,5 @@ C:\Repositorio\Consola .net\OptativoIII-introduccion\OptativoIII-introduccion\ob
 C:\Repositorio\Consola .net\OptativoIII-introduccion\OptativoIII-introduccion\obj\Debug\net6.0\ref\OptativoIII-introduccion.dll
 C:\Repositorio\Consola .net\OptativoIII-introduccion\OptativoIII-introduccion\obj\Debug\net6.0\OptativoIII-introduccion.pdb
 C:\Repositorio\Consola .net\OptativoIII-introduccion\OptativoIII-introduccion\obj\Debug\net6.0\OptativoIII-introduccion.genruntimeconfig.cache
+C:\Repositorio\Consola .net\OptativoIII-introduccion\OptativoIII-introduccion\bin\Debug\net6.0\Dapper.dll
+C:\Repositorio\Consola .net\OptativoIII-introduccion\OptativoIII-introduccion\bin\Debug\net6.0\MySqlConnector.dll

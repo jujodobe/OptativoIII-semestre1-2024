@@ -20,7 +20,12 @@
       "ProjectGuid": "997cafb4-1e62-4fb9-b311-67b5a5cf66b0",
       "DisplayName": "Services",
       "ColorIndex": 2
+    },
+    "96b20f17-72b8-4714-9590-1dc346f04adb": {
+      "ProjectGuid": "96b20f17-72b8-4714-9590-1dc346f04adb",
+      "DisplayName": "Solution Items",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 4
 }

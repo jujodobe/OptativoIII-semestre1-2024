@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Services.Logica
 {
-    public class PersonaService
+    public class PersonaService : IPersonaRepository
     {
         private PersonaRepository personaRepository;
         public PersonaService(string connectionString)
@@ -15,16 +15,24 @@ namespace Services.Logica
             personaRepository = new PersonaRepository(connectionString);
         }
 
-        public bool insertar(PersonaModel persona)
+        public bool add(PersonaModel persona)
         {
-            if (validarDatos(persona))
-                return personaRepository.add(persona);
-            else
-                throw new Exception("Error en la validación de datos, favor corroborar");
+            return validarDatos(persona) ? personaRepository.add(persona) : throw new Exception("Error en la validación de datos, corroborar");
         }
 
-        public List<PersonaModel> listado() {
-            return personaRepository.list();
+        public IEnumerable<PersonaModel> GetAll() {
+            return personaRepository.GetAll();
+        }
+
+        public bool delete(int id)
+        {
+            return id > 0 ? personaRepository.delete(id) : false;
+        }
+
+
+        public bool update(PersonaModel personaModel)
+        {
+            return validarDatos(personaModel) ? personaRepository.update(personaModel) : throw new Exception("Error en la validación de datos, corroborar");
         }
 
         private bool validarDatos(PersonaModel persona)

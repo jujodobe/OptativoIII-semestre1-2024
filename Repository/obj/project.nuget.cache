@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "519+OD0Z+9MCgQ7ZlW+PJih0A8HSzlcZbEVe0f6nTfIsPciPYqSrratJeTzwNPmFiICGiByjYHmf3/iQbEcebQ==",
+  "dgSpecHash": "Ejpa2WfJEPk0qdNfB1QW9uU77MebBd2LaOAHPK/Bm7qhckowJx7Mwik/HRb5R9EBQJgEEwA63pZ/mwO/opkRig==",
   "success": true,
   "projectFilePath": "C:\\Repositorio\\Consola .net\\OptativoIII-introduccion\\Repository\\Repository.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Usuario\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\mysqlconnector\\2.3.7\\mysqlconnector.2.3.7.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\npgsql\\8.0.2\\npgsql.8.0.2.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\system.diagnostics.diagnosticsource\\8.0.0\\system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",

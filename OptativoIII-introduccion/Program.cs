@@ -10,7 +10,7 @@ string opcion = Console.ReadLine();
 
 if(opcion == "a")
 {
-    personaService.insertar(new PersonaModel
+    personaService.add(new PersonaModel
     {
         nombre = "Juan",
         apellido = "Perez Sarela",
@@ -22,7 +22,7 @@ if(opcion == "a")
 }
 if(opcion == "b")
 {
-    personaService.listado().ForEach(persona => 
+    personaService.GetAll().ToList().ForEach(persona => 
     Console.WriteLine(
         $"Nombre: {persona.nombre} \n " +
         $"Apellido: {persona.apellido} \n " +
