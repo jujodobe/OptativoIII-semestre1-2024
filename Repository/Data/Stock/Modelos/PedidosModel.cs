@@ -11,6 +11,7 @@ namespace Repository.Data.Stock.Modelos
         public int id { get; set; }
         public DateTime fecha_pedido{ get; set; }
         public string Observacion { get; set; }
+        public string estado { get; set; }
         public List<DetallePedidoModel> detallePedido { get; set; }
     }
 }
